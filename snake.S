@@ -6,9 +6,9 @@
 .define Random_Value  $10
 .define Random_Parts_Position $11
 .define Starting_Pixel_Position $200
-.define parts_Color  #03    
+.define parts_Color  #02    
 
-compareY:
+checkInputY:
 LDY $18
 JMP Down_input
 
@@ -29,7 +29,7 @@ LDA parts_Color
 STA $200,Y
 LDY $4000
 CPY #00
-BEQ compareY
+BEQ checkInputY
 STY $18
 
 ;Down Input 
@@ -81,7 +81,6 @@ JSR FindParts
 JSR Print_pixel
 JMP PixelCleared
 
-
 Right_input:
 CPY #08
 BNE Loop
@@ -97,7 +96,6 @@ LDY #00
 JSR FindParts
 JSR Print_pixel
 JMP PixelCleared
-
 
 incerment_parts:
 LDA #01
